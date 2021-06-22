@@ -1,24 +1,18 @@
 const express = require("express")
 const server = express()
+const mission = require("./services/mission")
+const user = require("./services/user")
 const port = 3000
 
-server.get("/mission", (req, res) => {
-    res.send({ message: "listar todas as missoes" })
-})
+server.get("/mission", mission.get)
+server.post("/mission", mission.post)
+server.put("/mission/:id", mission.update)
+server.delete("/mission/:id", mission.remove)
 
-server.post("/mission", (req, res) => {
-    res.send({ message: "cadastrar uma missão" })
-})
-
-server.put("/mission/:id", (req, res) => {
-    const { id } = req.params
-    res.send({ message: `foi alterada a missão id ${id}`})
-})
-
-server.delete("/mission/:id", (req, res) => {
-    const { id } = req.params
-    res.send({ message: `foi deletado a missão id ${id}` })
-})
+server.get("/user", user.get)
+server.post("/user", user.post)
+server.put("/user/:id", user.update)
+server.delete("/user/:id", user.remove)
 
 server.listen(port, () => {
     console.log(`listening at http://localhost:${port}`)
