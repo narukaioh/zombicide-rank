@@ -1,8 +1,16 @@
+const { User } = require('../../models');
+
 const get = (req, res) => {
     res.send({ message: "listar todas os usario" })
 }
 
+const getById = (req, res) => {
+    res.send({ message: `listar todas os usario ${id}` })
+}
+
 const post = (req, res) => {
+    const { name, email, password } = req.body
+    User.create({ name, email, password });
     res.send({ message: "cadastrar um usuario" })
 }
 
@@ -16,4 +24,4 @@ const remove = (req, res) => {
     res.send({ message: `foi deletado o usuario id ${id}` })
 }
 
-module.exports = { get, post, update, remove }
+module.exports = { get, getById, post, update, remove }
