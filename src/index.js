@@ -11,10 +11,11 @@ server.use(cors())
 server.use(express.urlencoded({ extended: false }));
 
 // endpoint's list
-server.get("/mission", mission.get)
-server.post("/mission", mission.post)
-server.put("/mission/:id", mission.update)
-server.delete("/mission/:id", mission.remove)
+server.get("/missions", mission.get)
+server.get("/missions/:id", mission.getById)
+server.post("/missions", mission.post)
+server.put("/missions/:id", mission.update)
+server.delete("/missions/:id", mission.remove)
 
 server.get("/users", user.get)
 server.get("/users/:id", user.getById)
@@ -28,5 +29,3 @@ server.get("/login", auth.login)
 server.listen(port, () => {
     console.log(`listening at http://localhost:${port}`)
 })
-
-// 127.0.0.1:3000
