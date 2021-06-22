@@ -4,18 +4,26 @@
   "description": "Uma ferramenta para criar um rank para zombicide.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js",
+    "seq:migration:create": "npx sequelize migration:create --name=",
+    "seq:db:migrate": "npx sequelize db:migrate"
   },
-  "keywords": ["zombicide", "rank", "brazilian"],
+  "keywords": [
+    "zombicide",
+    "rank",
+    "brazilian"
+  ],
   "author": "Ju Dantas",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "pg": "^8.6.0",
     "sequelize": "^6.6.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0"
   }
 }
